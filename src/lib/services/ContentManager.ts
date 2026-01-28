@@ -10,11 +10,14 @@ export class ContentManager {
     private projects: Project[];
 
     private constructor() {
+        const isProd = process.env.NODE_ENV === 'production';
+        const basePath = isProd ? '/Portfolio' : '';
+
         this.profile = new Profile({
             name: "Anne Marie Factor",
             title: "IT Major & Multi-disciplinary Professional",
             bio: "I am an IT Major with a diverse skill set ranging from Web Development and Graphic Design to Executive and Virtual Assistance. I bridge the gap between technical expertise and administrative excellence.",
-            avatarUrl: "/mypicture.jpg",
+            avatarUrl: `${basePath}/mypicture.jpg`,
             email: "contact@example.com",
             socials: {
                 github: "https://github.com",
